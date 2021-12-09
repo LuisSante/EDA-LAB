@@ -27,7 +27,7 @@ def three_pair():
     print(list(tree.search(2910,2)))
     print(list(tree.search(3639,3)))
     print(list(tree.search(103485,4)))
-    tree.draw()
+    
 print(" ##################### Ejercicio 2 #####################")
 three_pair()
 
