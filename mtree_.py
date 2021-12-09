@@ -7,9 +7,7 @@ from itertools import combinations, islice
 def M_LB_DIST_confirmed(entries, current_routing_entry, d):
     if current_routing_entry is None or \
             any(e.distance_to_parent is None for e in entries):
-        return M_LB_DIST_non_confirmed(entries,
-                                       current_routing_entry,
-                                       d)
+        return M_LB_DIST_non_confirmed(entries,current_routing_entry,d)
 
     new_entry = max(entries, key=lambda e: e.distance_to_parent)
     return (current_routing_entry.obj, new_entry.obj)

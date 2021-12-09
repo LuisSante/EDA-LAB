@@ -1,5 +1,6 @@
 from mtree_ import MTree
 import pandas as pd
+import math
 
 def d_int(x,y):
     return abs(x-y)
@@ -32,16 +33,26 @@ three_pair()
 '''3. Dada una distancia de 37000, cuantos y cuales son los países más próximos a Perú (mostrar la búsqueda ejecutada y el
 resultado en el lenguaje de programación escogido)'''
 
-# Importar el dataset
 A = []
 dataset = pd.read_csv('tabla1.csv')
-punto = dataset.iloc[:, [2,3]].values
+nombres = dataset.iloc[:, [1]].values
+x = dataset.iloc[:, [2]].values
+y = dataset.iloc[:, [3]].values
+print("\n")
 print(" ##################### Ejercicio 3 #####################")
 print(" Lenguaje de Programacion Python")
-for x in punto:
-    tree = MTree(d_int, max_node_size=20)
-    tree.add_all(x)
-    print(list(tree.search(103485)))
+euclid = []
+for i in range(1,20,1):
+    distance = math.sqrt((x[0] - x[i]) ** 2 + (y[0] - y[i]) ** 2)
+    euclid.append(distance)
+
+cont = 0
+for i in range(len(euclid)):
+    if(euclid[i] <= 37000):
+        cont+=1
+        print(euclid[i],nombres[i+1])
+print("Paises mas cercanos a Peru: ",cont)
+    
 
 '''4. Cual es el país más próximo de Hungary. (mostrar la búsqueda ejecutada y el resultado en el lenguaje de programación
 escogido)'''
