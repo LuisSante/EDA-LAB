@@ -1,4 +1,5 @@
 from mtree_ import MTree
+import pandas as pd
 
 def d_int(x,y):
     return abs(x-y)
@@ -25,11 +26,22 @@ def three_pair():
     print(list(tree.search(2910,2)))
     print(list(tree.search(3639,3)))
     print(list(tree.search(103485,4)))
-print("Ejercicio2")
+print(" ##################### Ejercicio 2 #####################")
 three_pair()
 
 '''3. Dada una distancia de 37000, cuantos y cuales son los países más próximos a Perú (mostrar la búsqueda ejecutada y el
 resultado en el lenguaje de programación escogido)'''
+
+# Importar el dataset
+A = []
+dataset = pd.read_csv('tabla1.csv')
+punto = dataset.iloc[:, [2,3]].values
+print(" ##################### Ejercicio 3 #####################")
+print(" Lenguaje de Programacion Python")
+for x in punto:
+    tree = MTree(d_int, max_node_size=20)
+    tree.add_all(x)
+    print(list(tree.search(103485)))
 
 '''4. Cual es el país más próximo de Hungary. (mostrar la búsqueda ejecutada y el resultado en el lenguaje de programación
 escogido)'''
@@ -37,15 +49,11 @@ escogido)'''
 '''6. Utilice el conjunto de datos proporcionado en la tabla 2 para determinar si existe influencia del orden de inserción de los
 datos en el resultado de la búsquedas en términos de los nodos recorridos para generar la respuesta.'''
 
-'''# Importar el dataset
-dataset = pd.read_csv('test100.csv')
-punto = dataset.iloc[:, [1,2,3]].values'''
-
-def main():
+'''def main():
     tree = MTree(d_int, max_node_size=4)
     tree.add(1)
     tree.add_all([5, 9])
     print(list(tree.search(10)))
     print(list(tree.search(9,2)))
 print("Ejerccio")
-main()
+main()'''
