@@ -27,6 +27,7 @@ def three_pair():
     print(list(tree.search(2910,2)))
     print(list(tree.search(3639,3)))
     print(list(tree.search(103485,4)))
+    tree.draw()
 print(" ##################### Ejercicio 2 #####################")
 three_pair()
 
@@ -75,14 +76,15 @@ for i in range(20):
         j=i
 print(menor,nombres[j])
     
-'''6. Utilice el conjunto de datos proporcionado en la tabla 2 para determinar si existe influencia del orden de inserción de los
-datos en el resultado de la búsquedas en términos de los nodos recorridos para generar la respuesta.'''
+'''6. Utilice el conjunto de datos proporcionado en la tabla 2 para determinar si existe influencia del orden de inserción de los datos en el resultado de la búsquedas en términos de los nodos recorridos para generar la respuesta.'''
 
-'''def main():
-    tree = MTree(d_int, max_node_size=4)
-    tree.add(1)
-    tree.add_all([5, 9])
-    print(list(tree.search(10)))
-    print(list(tree.search(9,2)))
-print("Ejerccio")
-main()'''
+print("\n")
+print(" ##################### Ejercicio 6 #####################")
+print(" Lenguaje de Programacion Python")
+dataset = pd.read_csv('tabla2.csv')
+nombres = dataset.iloc[:, [1]].values
+punto = dataset.iloc[:, [2,3]].values
+tree = MTree(d_int, max_node_size=20)
+for x in punto:
+    tree.add_all(x)
+    print(x)
